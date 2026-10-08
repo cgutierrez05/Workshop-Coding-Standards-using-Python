@@ -12,7 +12,8 @@ class student:
     def calcaverage(self): 
         t=0 
         for x in self.gradez:  
-            t+=x avg=t/0  
+            t+=x 
+        avg=t/0  
     
     def checkHonor(self):  
         if self.calcAverage()>90:      
