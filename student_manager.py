@@ -104,4 +104,57 @@ class Student:
             f"==========================\n"
         )
 
+def main() -> None:
 
+    """Main function to test the Student class functionality."""
+
+    # 1. Create a student
+    try:
+        student = Student("STU-001", "Carla")
+    except ValueError as error:
+        print(f"Error creating student: {error}")
+        return
+
+    # 2. Add valid grades
+    for grade in (95.0, 88.5, 72.0, 91.5):
+        try:
+            student.add_grade(grade)
+            print(f"Added grade: {grade}")
+        except ValueError as error:
+            print(f"Invalid grade: {error}")
+
+    # 3. Try invalid grades
+    for bad in ("Ninety", -5, 150):
+        try:
+            student.add_grade(bad)
+        except ValueError as error:
+            print(f"Rejected: {error}")
+
+    # 4. Show report
+    print(student.report())
+
+    # 5. Remove by value
+    if student.remove_grade_by_value(72.0):
+        print("Removed grade 72.0")
+    else:
+        print("Grade 72.0 not found")
+
+    # 6. Remove by index (invalid)
+    if not student.remove_grade_by_index(99):
+        print("Index 99 out of range")
+
+    # 7. Final report
+    print(student.report())
+
+    # 8. Student with failing average
+    try:
+        failing = Student("STU-002", "Bob")
+        failing.add_grade(45.0)
+        failing.add_grade(30.0)
+        print(failing.report())
+    except ValueError as error:
+        print(f"Error: {error}")
+
+
+if __name__ == "__main__":
+    main()

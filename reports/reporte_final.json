@@ -1,15 +1,1 @@
-[
-    {
-        "type": "convention",
-        "module": "student_manager",
-        "obj": "",
-        "line": 107,
-        "column": 0,
-        "endLine": null,
-        "endColumn": null,
-        "path": "student_manager.py",
-        "symbol": "trailing-newlines",
-        "message": "Trailing newlines",
-        "message-id": "C0305"
-    }
-]
+[]
