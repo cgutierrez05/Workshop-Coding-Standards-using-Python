@@ -24,4 +24,15 @@ class Student:
         self.is_passed = "Failed"
         self.honor_roll = False
 
-    
+    def add_grade(self, grade: float) -> None:
+
+        """Add a grade to the student."""
+
+        if not isinstance(grade, (int, float)) or isinstance(grade, bool):
+            raise ValueError(f"Grade must be numeric, got: {grade!r}")
+        if grade < GRADE_MIN or grade > GRADE_MAX:
+            raise ValueError(
+                f"Grade must be between {GRADE_MIN} and {GRADE_MAX}, got: {grade}"
+            )
+        self.grades.append(float(grade))
+
